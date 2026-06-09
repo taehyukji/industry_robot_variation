@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로봇 산업 활용성 평가</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace" aria-labelledby="app-title">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Robot Deployment Index</p>
+            <h1 id="app-title">로봇 산업 활용성 평가</h1>
+          </div>
+          <div class="score-pill">
+            <span>현재 산업 기준</span>
+            <strong>50점</strong>
+          </div>
+        </header>
+
+        <section class="industry-panel" aria-label="산업군 선택">
+          <div class="section-heading">
+            <h2>산업군</h2>
+            <p id="industry-description"></p>
+          </div>
+          <div class="industry-tabs" id="industry-tabs"></div>
+          <div class="weight-strip" id="weight-strip"></div>
+        </section>
+
+        <section class="input-layout">
+          <form class="metrics-panel" id="metrics-form">
+            <div class="section-heading compact">
+              <h2>평가 수치</h2>
+              <div class="button-row">
+                <button class="ghost-button" type="button" id="baseline-button">기준값 채우기</button>
+                <button class="ghost-button" type="button" id="example-button">예시값 채우기</button>
+              </div>
+            </div>
+            <div class="metric-groups" id="metric-groups"></div>
+          </form>
+
+          <aside class="results-panel" aria-labelledby="result-title">
+            <div class="section-heading compact">
+              <h2 id="result-title">평가 결과</h2>
+              <span class="status-chip" id="status-chip"></span>
+            </div>
+
+            <div class="main-score">
+              <div class="score-card primary hero-score">
+                <span>활용 가능성</span>
+                <strong id="adoption-score">0</strong>
+                <div class="meter"><span id="adoption-meter"></span></div>
+              </div>
+            </div>
+
+            <div class="support-scores">
+              <div class="score-card">
+                <span>산업 적합도</span>
+                <strong id="fit-score">0</strong>
+                <div class="meter"><span id="fit-meter"></span></div>
+              </div>
+              <div class="score-card">
+                <span>실질 효율성</span>
+                <strong id="efficiency-score">0</strong>
+                <div class="meter"><span id="efficiency-meter"></span></div>
+              </div>
+            </div>
+
+            <div class="result-grid">
+              <div>
+                <span>오류 안정성</span>
+                <strong id="error-score">0</strong>
+              </div>
+              <div>
+                <span>경제성</span>
+                <strong id="economy-score">0</strong>
+              </div>
+              <div>
+                <span>예상 회수</span>
+                <strong id="payback-value">-</strong>
+              </div>
+            </div>
+
+            <div class="score-bars" aria-label="평가 결과 막대 그래프">
+              <div class="bar-row">
+                <div>
+                  <span>활용 가능성</span>
+                  <strong id="bar-adoption-value">0점</strong>
+                </div>
+                <div class="bar-track"><span id="bar-adoption"></span></div>
+              </div>
+              <div class="bar-row">
+                <div>
+                  <span>실질 효율성</span>
+                  <strong id="bar-efficiency-value">0점</strong>
+                </div>
+                <div class="bar-track"><span id="bar-efficiency"></span></div>
+              </div>
+              <div class="bar-row">
+                <div>
+                  <span>산업 적합도</span>
+                  <strong id="bar-fit-value">0점</strong>
+                </div>
+                <div class="bar-track"><span id="bar-fit"></span></div>
+              </div>
+              <div class="bar-row">
+                <div>
+                  <span>오류 안정성</span>
+                  <strong id="bar-error-value">0점</strong>
+                </div>
+                <div class="bar-track"><span id="bar-error"></span></div>
+              </div>
+              <div class="bar-row">
+                <div>
+                  <span>경제성</span>
+                  <strong id="bar-economy-value">0점</strong>
+                </div>
+                <div class="bar-track"><span id="bar-economy"></span></div>
+              </div>
+              <div class="bar-row">
+                <div>
+                  <span>예상 회수</span>
+                  <strong id="bar-payback-value">-</strong>
+                </div>
+                <div class="bar-track"><span id="bar-payback"></span></div>
+              </div>
+            </div>
+
+            <div class="recommendation" id="recommendation"></div>
+
+            <section class="economy-panel" aria-label="경제성 입력">
+              <h3>경제성</h3>
+              <label>
+                <span>도입 비용</span>
+                <input type="number" id="purchase-cost" min="0" step="100" value="15000" />
+                <em>만원</em>
+              </label>
+              <label>
+                <span>월 운영 비용</span>
+                <input type="number" id="monthly-cost" min="0" step="10" value="150" />
+                <em>만원</em>
+              </label>
+              <label>
+                <span>월 절감/추가 매출</span>
+                <input type="number" id="monthly-benefit" min="0" step="10" value="800" />
+                <em>만원</em>
+              </label>
+              <label>
+                <span>목표 회수 기간</span>
+                <input type="number" id="target-payback" min="1" step="1" value="24" />
+                <em>개월</em>
+              </label>
+            </section>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
